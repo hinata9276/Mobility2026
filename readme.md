@@ -70,7 +70,7 @@ The basic learning process is:
              │
              └──────────────► Repeat
 # 🧠 Reinforcement Learning
-1. State
+## State
 
 The robot uses five infrared (IR) sensors to determine its position relative to the line.
 The sensor arrangement is:
@@ -95,7 +95,7 @@ L2 L1 C0 R1 R2
 produces: 00100₂ = 4
 Therefore, the sensor pattern can be used directly as the Q-table state index:
 
-#🎮 Action
+# 🎮 Action
 
 The robot has five possible motor actions:
 
