@@ -10,6 +10,32 @@
 
 ---
 
+# 🎯 Objective
+
+The objective of this project is to demonstrate how reinforcement learning can be implemented on a resource-constrained embedded system.
+
+The robot learns its steering behaviour directly from:
+````
+Sensor Feedback
+      +
+   Actions
+      +
+   Rewards
+      ↓
+ Learned Policy
+````
+Rather than explicitly programming every possible sensor condition and steering response, the desired behaviour emerges from the Q-learning process.
+
+The resulting system demonstrates the integration of:
+
+- ESP32 embedded programming
+- FreeRTOS multitasking
+- Infrared sensor processing
+- Motor control
+- Tabular Q-learning
+- Exploration and exploitation
+- Real-time reinforcement learning
+
 ## 📌 Description
 
 This project implements a **tabular Q-learning algorithm** on an ESP32 to control a **5-sensor line-following robot**.
@@ -330,29 +356,3 @@ The complete reinforcement-learning cycle is:
          Repeat Cycle
 ````
 Over many interactions with the track, the Q-table gradually converges toward a useful line-following policy.
-
-# 🎯 Objective
-
-The objective of this project is to demonstrate how reinforcement learning can be implemented on a resource-constrained embedded system.
-
-The robot learns its steering behaviour directly from:
-````
-Sensor Feedback
-      +
-   Actions
-      +
-   Rewards
-      ↓
- Learned Policy
-````
-Rather than explicitly programming every possible sensor condition and steering response, the desired behaviour emerges from the Q-learning process.
-
-The resulting system demonstrates the integration of:
-
-- ESP32 embedded programming
-- FreeRTOS multitasking
-- Infrared sensor processing
-- Motor control
-- Tabular Q-learning
-- Exploration and exploitation
-- Real-time reinforcement learning
