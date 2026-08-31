@@ -95,7 +95,7 @@ L2 L1 C0 R1 R2
 produces: 00100₂ = 4
 Therefore, the sensor pattern can be used directly as the Q-table state index:
 
-# 🎮 Action
+## 🎮 Action
 
 The robot has five possible motor actions:
 
@@ -115,7 +115,7 @@ Hard Left     Left       Centre       Right      Hard Right
 ````
 The five actions provide different levels of steering correction.
 
-📊 Q-Table
+## 📊 Q-Table
 
 The learned policy is stored in a Q-table:
 ````
@@ -144,7 +144,7 @@ STATE31 │ 0    0    0    0    0
 ````
 This represents a robot with no prior knowledge about which action is best. As the robot interacts with the track, the Q-values are gradually updated. Eventually, the table represents the learned line-following policy.
 
-# 🏆 Reward
+## 🏆 Reward
 
 The reward tells the robot whether its previous action was good or bad. The reward is determined from the new sensor state after an action has been executed. A state where the robot is centred over the line receives the highest reward. As the robot moves further away from the centre, the reward progressively decreases. Losing the line produces a strong negative reward.
 
@@ -168,7 +168,7 @@ Conceptually:
 ````
 This reward structure teaches the robot that remaining near the centre of the line is desirable.
 
-# 🔄 Q-Learning
+## 🔄 Q-Learning
 
 After executing an action, the robot observes the new sensor state and updates the corresponding Q-value.
 The standard Q-learning update equation is:
@@ -188,11 +188,11 @@ The important idea is that the robot does not only consider the immediate reward
 
 Therefore, an action can be considered good even if its immediate reward is not the highest, provided that it leads to a state from which good future actions are possible.
 
-# 🔍 Exploration vs. Exploitation
+## 🔍 Exploration vs. Exploitation
 
 The robot uses an epsilon-greedy policy to balance exploration and exploitation.
 
-## Exploration
+### Exploration
 
 With probability ε (epsilon), the robot selects a random action:
 ````
@@ -206,7 +206,7 @@ Learn from the result
 ````
 This prevents the robot from becoming trapped in a poor policy before it has sufficiently explored the available actions.
 
-## Exploitation
+### Exploitation
 
 With probability 1 - ε, the robot selects the action with the highest Q-value:
 ````
@@ -218,7 +218,7 @@ With probability 1 - ε, the robot selects the action with the highest Q-value:
             ▼
       Select best action
 ````
-## Epsilon Decay
+### Epsilon Decay
 
 During training, epsilon gradually decreases. Conceptually:
 ````
